@@ -139,7 +139,7 @@ module MarkdownPreview
   .section code { font-family: Monaco, monospace; font-weight: bold; }
   .section strong { border-bottom: 1px dashed #aaa; }
   #main-nav { position: fixed; top: 40px; text-align: left; list-style: none; 
-    text-align: right; margin-left: -100px; }
+    text-align: right; margin-left: -170px; width: 240px; }
   #main-nav li { margin-bottom: 4px; }
   </style>
   </head>
