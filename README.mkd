@@ -1,0 +1,27 @@
+Description
+===========
+
+Preview HTML from markdown files.
+
+Installation
+============
+
+    sudo gem install bluecloth
+    cp mkdprev.rb /path/to/bin/mkdprev
+
+You can configure which command to use preview HTML files.  By default it's 
+`open` which works fine on OS X.  Just change this line in `mkdprev.rb`:
+
+    OPEN_HTML = 'open'
+
+Usage
+=====
+
+    mkdprev file1.mkd file2.mkd
+
+License
+=======
+
+Copyright 2011 Hugh Bien, http://hughbien.com.
+
+Released under MIT License, see LICENSE.mkd for more info.
