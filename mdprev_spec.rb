@@ -1,4 +1,4 @@
-require 'mkdprev'
+require 'mdprev'
 
 describe MarkdownPreview do
   it 'should build anchors from markdown' do
@@ -24,7 +24,7 @@ describe MarkdownPreview do
   end
 
   it 'should generate title from filenames' do
-    MarkdownPreview.title_from_files(['sample.mkd']).should == 'Sample'
+    MarkdownPreview.title_from_files(['sample.md']).should == 'Sample'
     MarkdownPreview.title_from_files([
       'league-of-extraordinary-_^Gentlemen',
       'ignoreothernames'
