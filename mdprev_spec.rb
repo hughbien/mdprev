@@ -48,7 +48,7 @@ describe MarkdownPreview do
   end
 
   it 'should determine nav class from amount of anchors' do
-    MarkdownPreview.nav_class([]).should == 'no-nav'
-    MarkdownPreview.nav_class(Array.new(10)).should == ''
+    MarkdownPreview.nav_class([]).should == ''
+    MarkdownPreview.nav_class(Array.new(10)).should == 'nav-layout'
   end
 end
