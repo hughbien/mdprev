@@ -9,10 +9,14 @@ Installation
     sudo gem install kramdown
     cp mdprev.rb /path/to/bin/mdprev
 
-You can configure which command to use preview HTML files.  By default it's 
-`open` which works fine on OS X.  Just change this line in `mdprev.rb`:
+For PDF support, download [http://code.google.com/p/wkhtmltopdf/] and copy it
+into your `/path/to/bin/wkhtmltopdf`.
+
+You can configure which command to use preview HTML/PDF files.  By default it's 
+`open` which works fine on OS X.  Just change these lines in `mdprev.rb`:
 
     OPEN_HTML = 'open'
+    OPEN_PDF  = 'open'
 
 Usage
 =====
