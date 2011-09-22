@@ -63,7 +63,7 @@ module MarkdownPreview
   end
 
   def self.nav_class(anchors)
-    anchors.size <= NAV_THRESHOLD ? 'no-nav' : ''
+    anchors.size <= NAV_THRESHOLD ? '' : 'nav-layout'
   end
 
   def self.build_nav(anchors)
@@ -130,8 +130,8 @@ p { margin: 24px 0; }
 p:first-child { margin-top: 0; }
 p:last-child { margin-bottom: 0; }
 #main { width: 500px; margin: 60px auto; text-align: left; position: relative;
-  left: 100px; }
-.no-nav #main { left: 0; }
+  left: 0; }
+.nav-layout #main { left: 100px; }
 .section { padding: 36px; background: #fff; border: 1px solid #bcbcbc; 
   -webkit-box-shadow: 2px 2px 4px #ccc; 
   -moz-box-shadow: 2px 2px 4px #ccc; margin-bottom: 36px; }
