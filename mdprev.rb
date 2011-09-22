@@ -99,11 +99,12 @@ pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q,
 s, samp,small, strike, strong, sub, sup, tt, var,dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td { 
   margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit;
-  font-style: inherit; font-family: lucida grande, helvetica, sans-serif;
+  font-style: inherit;
   vertical-align: baseline; 
 }
 body { text-align: center; font-size: 11.5px; background: #e0e0e0;
-  line-height: 1.7em; color: #333; width: 100%; height: 100%; }
+  line-height: 1.7em; color: #333; width: 100%; height: 100%;
+  font-family: lucida grande, helvetica, sans-serif; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; font-family: Copperplate / Copperplate Gothic Light, sans-serif; }
 h1 { margin: 36px 0 24px; color: #111; border-bottom: 1px dashed #aaa; 
   padding-bottom: 6px; font-size: 2.2em; }
@@ -141,7 +142,6 @@ p:first-child { margin-top: 0; }
 p:last-child { margin-bottom: 0; }
 #main { width: 500px; margin: 60px auto; text-align: left; position: relative;
   left: 0; }
-.nav-layout #main { left: 100px; }
 .section { padding: 36px; background: #fff; border: 1px solid #bcbcbc; 
   -webkit-box-shadow: 2px 2px 4px #ccc; 
   -moz-box-shadow: 2px 2px 4px #ccc; margin-bottom: 36px; }
@@ -151,9 +151,29 @@ p:last-child { margin-bottom: 0; }
 .section pre code { font-weight: normal; }
 .section code { font-family: Monaco, monospace; font-weight: bold; }
 .section strong { border-bottom: 1px dashed #aaa; }
+
 #main-nav { position: fixed; top: 40px; text-align: left; list-style: none; 
   text-align: right; margin-left: -170px; width: 240px; }
 #main-nav li { margin-bottom: 4px; }
+.nav-layout #main { left: 100px; }
+
+body.pdf-layout { background: #fff; line-height: 1.4em; font-size: 10px; }
+.pdf-layout #main { width: 400px; }
+.pdf-layout h1, .pdf-layout h2, .pdf-layout h3, .pdf-layout h4, 
+.pdf-layout h5, .pdf-layout h6 { margin: 16px 0 -6px; color: #000; }
+.pdf-layout h1 { font-size: 1.4em; border-bottom: none; }
+.pdf-layout h2 { font-size: 1.3em; }
+.pdf-layout h3 { font-size: 1.2em; }
+.pdf-layout h4 { font-size: 1.1em; }
+.pdf-layout h5 { font-size: 1em; }
+.pdf-layout .section { border: none; margin-bottom: 0; padding: 12px 0 0 0;
+  -webkit-box-shadow: none; -moz-box-shadow: none; }
+.pdf-layout .section pre { position: static; padding: 6px 12px; 
+  background: #e0e0e0; color: #000; font-size: 0.8em; border: none; }
+.pdf-layout .section pre:last-child { margin-bottom: 24px; }
+.pdf-layout .section code { font-weight: normal; }
+.pdf-layout p, .pdf-layout ol, .pdf-layout ul { margin-top: 16px;
+  margin-bottom: 16px; }
 </style>
 </head>
 <body class="$class$">
