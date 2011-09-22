@@ -3,11 +3,11 @@ require 'mdprev'
 describe MarkdownPreview do
   it 'should build anchors from markdown' do
     body, anchors = MarkdownPreview.build_body_and_anchors("
-      # Header !@%^_ 1
-      Paragraph
-      # Header 2
-      Paragraph 2
-    ".gsub(/^\s+/, ''))
+      # Header !@%^_ 1\n
+      Paragraph\n
+      # Header 2\n
+      Paragraph 2\n
+    ".gsub(/^ +/, ''))
     anchors.should == [
       ['header-1', 'Header !@%^_ 1'],
       ['header-2', 'Header 2']

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'bluecloth'
+require 'kramdown'
 
 module MarkdownPreview
   OPEN_HTML     = 'open'
@@ -36,7 +36,7 @@ module MarkdownPreview
   end
 
   def self.build_body_and_anchors(str)
-    html = BlueCloth.new(str).to_html
+    html = Kramdown::Document.new(str, :auto_ids => false).to_html
     anchors = []
     html.gsub!('<h1>', '</div><div class="section"><h1>')
     html.scan(/<h1>[^<]+<\/h1>/).each do |match|

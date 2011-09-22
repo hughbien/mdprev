@@ -6,7 +6,7 @@ Preview HTML from markdown files.
 Installation
 ============
 
-    sudo gem install bluecloth
+    sudo gem install kramdown
     cp mdprev.rb /path/to/bin/mdprev
 
 You can configure which command to use preview HTML files.  By default it's 
