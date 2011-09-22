@@ -48,7 +48,8 @@ describe MarkdownPreview do
   end
 
   it 'should determine nav class from amount of anchors' do
-    MarkdownPreview.nav_class([]).should == ''
-    MarkdownPreview.nav_class(Array.new(10)).should == 'nav-layout'
+    MarkdownPreview.body_class(:pdf => false, :nav => false).should == ''
+    MarkdownPreview.body_class(:pdf => true).should == 'pdf-layout'
+    MarkdownPreview.body_class(:nav => true).should == 'nav-layout'
   end
 end

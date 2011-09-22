@@ -18,6 +18,8 @@ Usage
 =====
 
     mdprev file1.md file2.md
+    mdprev file1.md file2.md --nav
+    mdprev file1.md --pdf
 
 License
 =======

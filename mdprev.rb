@@ -9,11 +9,15 @@ module MarkdownPreview
   NAV_THRESHOLD = 4
 
   def self.run(argv)
-    return print_usage if argv.size == 0
+    opts, fnames = argv.partition {|a| ['--pdf', '--nav'].include?(a)}
+    return print_usage if fnames.size == 0
+
     html = File.open(PREVIEW_HTML, 'w')
     html.write(to_html(
-      argv.map {|f| File.read(f)}.join("\n"),
-      title_from_files(argv)))
+      fnames.map {|f| File.read(f)}.join("\n"),
+      title_from_files(fnames),
+      :pdf => opts.include?('--pdf'),
+      :nav => opts.include?('--nav')))
     html.close
     `#{OPEN_HTML} #{html.path}`
   rescue StandardError => e
@@ -23,14 +27,15 @@ module MarkdownPreview
   end
 
   def self.print_usage
-    puts "Usage: #{$0} [markdown-files,]"
+    puts "Usage: #{$0} [markdown-files,] [--pdf] [--nav]"
   end
 
-  def self.to_html(str, title = 'Preview')
+  def self.to_html(str, title = 'Preview', flags = {})
     body, anchors = build_body_and_anchors(str)
-    DATA.read.sub('$nav$', build_nav(anchors)).
+    DATA.read.
+      sub('$nav$', flags[:nav] ? build_nav(anchors) : '').
       sub('$body$', body).
-      sub('$class$', nav_class(anchors)).
+      sub('$class$', body_class(flags)).
       sub('$title$', title).
       gsub('<div class="section"></div>', '')
   end
@@ -52,9 +57,9 @@ module MarkdownPreview
     [html, anchors]
   end
 
-  def self.title_from_files(argv)
-    File.basename(argv.first).
-      gsub(/#{File.extname(argv.first)}$/, '').
+  def self.title_from_files(fnames)
+    File.basename(fnames.first).
+      gsub(/#{File.extname(fnames.first)}$/, '').
       gsub(/[^a-zA-Z0-9\-_ ]/, '').
       gsub(/[\-_]/, ' ').
       split(/\s+/).
@@ -62,12 +67,17 @@ module MarkdownPreview
       join(' ')
   end
 
-  def self.nav_class(anchors)
-    anchors.size <= NAV_THRESHOLD ? '' : 'nav-layout'
+  def self.body_class(flags)
+    if flags[:pdf]
+      'pdf-layout'
+    elsif flags[:nav]
+      'nav-layout'
+    else
+      ''
+    end
   end
 
   def self.build_nav(anchors)
-    return '' if anchors.size <= NAV_THRESHOLD
     html = ['<ul id="main-nav">']
     anchors.each do |anchor, text|
       html << "<li><a href=\"##{anchor}\">#{text}</a></li>"
