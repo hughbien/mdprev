@@ -165,7 +165,7 @@ p:last-child { margin-bottom: 0; }
 .nav-layout #main { left: 100px; }
 
 body.pdf-layout { background: #fff; line-height: 1.4em; font-size: 10px; }
-.pdf-layout #main { width: 400px; }
+.pdf-layout #main { width: 420px; }
 .pdf-layout h1, .pdf-layout h2, .pdf-layout h3, .pdf-layout h4, 
 .pdf-layout h5, .pdf-layout h6 { margin: 12px 0 -6px; color: #000; }
 .pdf-layout h1 { font-size: 1.4em; border-bottom: none; }
@@ -176,10 +176,11 @@ body.pdf-layout { background: #fff; line-height: 1.4em; font-size: 10px; }
 .pdf-layout .section { border: none; margin-bottom: 0; padding: 12px 0 0 0;
   -webkit-box-shadow: none; -moz-box-shadow: none; }
 .pdf-layout .section:first-child { padding-top: 0; }
-.pdf-layout .section pre { position: static; padding: 6px 12px; 
+.pdf-layout .section pre { position: static; padding: 6px 12px; width: 396px;
   background: #e0e0e0; color: #000; font-size: 0.95em; border: none; }
 .pdf-layout .section pre:last-child { margin-bottom: 24px; }
 .pdf-layout .section code { font-weight: normal; }
+.pdf-layout p { text-align: justify; }
 .pdf-layout p, .pdf-layout ol, .pdf-layout ul { margin-top: 16px;
   margin-bottom: 16px; }
 </style>
