@@ -4,6 +4,7 @@ require 'rubygems'
 require 'kramdown'
 
 module MarkdownPreview
+  VERSION       = '1.0.0'
   OPEN_HTML     = ENV['MDPREV_OPEN_HTML'] || 'open'
   OPEN_PDF      = ENV['MDPREV_OPEN_PDF'] || 'open'
   PREVIEW_HTML  = "#{ENV['HOME']}/.preview.html"
