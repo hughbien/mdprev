@@ -10,6 +10,10 @@ task :build do
   `gem build mdprev.gemspec`
 end
 
+task :clean do
+  rm Dir.glob('*.gem')
+end
+
 task :push => :build do
   `gem push mdprev-#{MarkdownPreview::VERSION}.gem`
 end
