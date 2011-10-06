@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require File.expand_path('mdprev', File.dirname(__FILE__))
+
+ARGV.options do |o|
+  flags = {}
+  o.set_summary_indent('  ')
+  o.banner =    "Usage: #{File.basename($0)} [markdown-files,] [OPTIONS]"
+  o.define_head 'Styled preview of markdown files in browser'
+  o.on('-p', '--pdf', 'view as PDF') { flags[:pdf] = true }
+  o.on('-n', '--nav', 'include navigation') { flags[:nav] = true }
+  o.on('-h', '--help', 'show this help message') { puts o; exit }
+  o.parse!
+  ARGV.empty? ? puts(o) : MarkdownPreview.run(ARGV, flags)
+end

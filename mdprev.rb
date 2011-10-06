@@ -4,26 +4,21 @@ require 'rubygems'
 require 'kramdown'
 
 module MarkdownPreview
-  OPEN_HTML     = 'open'
-  OPEN_PDF      = 'open'
+  OPEN_HTML     = ENV['MDPREV_OPEN_HTML'] || 'open'
+  OPEN_PDF      = ENV['MDPREV_OPEN_PDF'] || 'open'
   PREVIEW_HTML  = "#{ENV['HOME']}/.preview.html"
   PREVIEW_PDF   = "#{ENV['HOME']}/.preview.pdf"
 
-  def self.run(argv)
-    opts, fnames = argv.partition {|a| ['--pdf', '--nav'].include?(a)}
-    return print_usage if fnames.size == 0
-
+  def self.run(fnames, flags = {})
     html = File.open(PREVIEW_HTML, 'w')
     html.write(to_html(
       fnames.map {|f| File.read(f)}.join("\n"),
-      title_from_files(fnames),
-      :pdf => opts.include?('--pdf'),
-      :nav => opts.include?('--nav')))
+      title_from_files(fnames), 
+      flags))
     html.close
 
-    if opts.include?('--pdf')
-      `wkhtmltopdf #{PREVIEW_HTML} #{PREVIEW_PDF}`
-      `#{OPEN_PDF} #{PREVIEW_PDF}`
+    if flags[:pdf]
+      `wkhtmltopdf #{PREVIEW_HTML} #{PREVIEW_PDF} && #{OPEN_PDF} #{PREVIEW_PDF}`
     else
       `#{OPEN_HTML} #{PREVIEW_HTML}`
     end
@@ -33,13 +28,9 @@ module MarkdownPreview
     html.close if html && !html.closed?
   end
 
-  def self.print_usage
-    puts "Usage: #{$0} [markdown-files,] [--pdf] [--nav]"
-  end
-
   def self.to_html(str, title = 'Preview', flags = {})
     body, anchors = build_body_and_anchors(str)
-    DATA.read.
+    TEMPLATE.
       sub('$nav$', flags[:nav] ? build_nav(anchors) : '').
       sub('$body$', body).
       sub('$class$', body_class(flags)).
@@ -94,9 +85,7 @@ module MarkdownPreview
   end
 end
 
-MarkdownPreview.run(ARGV) if $0 == __FILE__
-
-__END__
+MarkdownPreview::TEMPLATE = <<END
 <!doctype html>
 <head>
 <title>$title$</title>
@@ -192,3 +181,4 @@ body.pdf-layout { background: #fff; line-height: 1.4em; font-size: 10px; }
   </div>
 </body>
 </html>
+END
