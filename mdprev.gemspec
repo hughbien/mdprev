@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
                   '  Adds a default theme.  Works with wkhtmltopdf.'
  
   s.required_rubygems_version = '>= 1.3.6'
-  s.add_dependency 'kramdown'
+  s.add_dependency 'bluecloth'
   s.add_development_dependency 'minitest'
  
   s.files        = Dir.glob('*.{rb,.md}') + %w(mdprev)

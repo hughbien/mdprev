@@ -1,6 +1,6 @@
 require 'rubygems'
-require 'mdprev'
 require 'minitest/autorun'
+require "#{File.dirname(__FILE__)}/mdprev"
 
 class MarkdownPreviewTest < MiniTest::Unit::TestCase
   def test_build_anchors

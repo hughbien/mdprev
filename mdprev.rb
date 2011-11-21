@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'kramdown'
+require 'bluecloth'
 
 module MarkdownPreview
-  VERSION       = '1.0.0'
+  VERSION       = '1.0.1'
   OPEN_HTML     = ENV['MDPREV_OPEN_HTML'] || 'open'
   OPEN_PDF      = ENV['MDPREV_OPEN_PDF'] || 'open'
   PREVIEW_HTML  = "#{ENV['HOME']}/.preview.html"
@@ -40,7 +40,7 @@ module MarkdownPreview
   end
 
   def self.build_body_and_anchors(str)
-    html = Kramdown::Document.new(str, :auto_ids => false).to_html
+    html = BlueCloth.new(str).to_html
     anchors = []
     html.gsub!('<h1>', '</div><div class="section"><h1>')
     html.scan(/<h1>[^<]+<\/h1>/).each do |match|
