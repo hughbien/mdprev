@@ -7,8 +7,8 @@ module MarkdownPreview
   VERSION       = '1.0.1'
   OPEN_HTML     = ENV['MDPREV_OPEN_HTML'] || 'open'
   OPEN_PDF      = ENV['MDPREV_OPEN_PDF'] || 'open'
-  PREVIEW_HTML  = "#{ENV['HOME']}/.preview.html"
-  PREVIEW_PDF   = "#{ENV['HOME']}/.preview.pdf"
+  PREVIEW_HTML  = "#{Dir.pwd}/.preview.html"
+  PREVIEW_PDF   = "#{Dir.pwd}/.preview.pdf"
 
   def self.run(fnames, flags = {})
     html = File.open(PREVIEW_HTML, 'w')
@@ -20,8 +20,13 @@ module MarkdownPreview
 
     if flags[:pdf]
       `wkhtmltopdf #{PREVIEW_HTML} #{PREVIEW_PDF} && #{OPEN_PDF} #{PREVIEW_PDF}`
+      sleep(1)
+      File.delete(PREVIEW_HTML)
+      File.delete(PREVIEW_PDF)
     else
       `#{OPEN_HTML} #{PREVIEW_HTML}`
+      sleep(1)
+      File.delete(PREVIEW_HTML)
     end
   rescue StandardError => e
     puts e.message
