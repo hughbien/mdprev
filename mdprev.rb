@@ -142,7 +142,7 @@ strong { font-weight: bold; }
 p { margin: 24px 0; }
 p:first-child { margin-top: 0; }
 p:last-child { margin-bottom: 0; }
-#main { width: 500px; margin: 60px auto; text-align: left; position: relative;
+#main { width: 574px; margin: 60px auto; text-align: left; position: relative;
   left: 0; }
 .section { padding: 36px; background: #fff; border: 1px solid #bcbcbc; 
   -webkit-box-shadow: 2px 2px 4px #ccc; 
