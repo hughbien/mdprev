@@ -4,7 +4,7 @@ require 'rubygems'
 require 'bluecloth'
 
 module MarkdownPreview
-  VERSION       = '1.0.1'
+  VERSION       = '1.0.2'
   OPEN_HTML     = ENV['MDPREV_OPEN_HTML'] || 'open'
   OPEN_PDF      = ENV['MDPREV_OPEN_PDF'] || 'open'
   CONVERT_PDF   = ENV['MDPREV_CONVERT_PDF'] || 'wkhtmltopdf $input $output'
