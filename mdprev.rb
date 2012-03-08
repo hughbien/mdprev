@@ -7,6 +7,7 @@ module MarkdownPreview
   VERSION       = '1.0.1'
   OPEN_HTML     = ENV['MDPREV_OPEN_HTML'] || 'open'
   OPEN_PDF      = ENV['MDPREV_OPEN_PDF'] || 'open'
+  CONVERT_PDF   = ENV['MDPREV_CONVERT_PDF'] || 'wkhtmltopdf $input $output'
   PREVIEW_HTML  = "#{Dir.pwd}/.preview.html"
   PREVIEW_PDF   = "#{Dir.pwd}/.preview.pdf"
 
@@ -19,7 +20,10 @@ module MarkdownPreview
     html.close
 
     if flags[:pdf]
-      `wkhtmltopdf #{PREVIEW_HTML} #{PREVIEW_PDF} && #{OPEN_PDF} #{PREVIEW_PDF}`
+      command = CONVERT_PDF.
+        sub('$input', PREVIEW_HTML).
+        sub('$output', PREVIEW_PDF)
+      `#{command} && #{OPEN_PDF} #{PREVIEW_PDF}`
       sleep(1)
       File.delete(PREVIEW_HTML)
       File.delete(PREVIEW_PDF)
