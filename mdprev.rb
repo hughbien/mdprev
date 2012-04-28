@@ -139,7 +139,7 @@ p + ol, p + ul { margin-top: -16px; }
 ol:last-child, ul:last-child { margin-bottom: 0; }
 table { border-collapse: collapse; border-spacing: 0; }
 caption, th, td { text-align: left; font-weight: normal; }
-blockquote:before, blockquote:after,q:before, q:after { content: ""; }
+blockquote:before, blockquote:after,q:before, q:after { content: ''; }
 blockquote, q { quotes: "" ""; }
 em { font-style: italic; }
 strong { font-weight: bold; }
@@ -151,6 +151,10 @@ p:last-child { margin-bottom: 0; }
 .section { padding: 36px; background: #fff; border: 1px solid #bcbcbc; 
   -webkit-box-shadow: 2px 2px 4px #ccc; 
   -moz-box-shadow: 2px 2px 4px #ccc; margin-bottom: 36px; }
+.section blockquote { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+  background: #eee; padding: 12px 36px; position: relative;
+  right: 36px; width: 100%; font-style: italic;
+  font-family: "Times New Roman", Times, serif; }
 .section pre { border-top: 1px solid #000; border-bottom: 1px solid #000;
    color: #fff; background: #555; width: 100%; padding: 12px 36px;
    position: relative; right: 36px; font-family: Monaco, monospace; }
