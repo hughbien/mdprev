@@ -158,9 +158,9 @@ p:last-child { margin-bottom: 0; }
 .section strong { border-bottom: 1px dashed #aaa; }
 
 #main-nav { position: fixed; top: 40px; text-align: left; list-style: none; 
-  text-align: right; margin-left: -170px; width: 240px; }
+  text-align: right; margin-left: -275px; width: 240px; }
 #main-nav li { margin-bottom: 4px; }
-.nav-layout #main { left: 100px; }
+.nav-layout #main { left: 115px; }
 
 body.pdf-layout { background: #fff; line-height: 1.4em; font-size: 10px; }
 .pdf-layout #main { width: 420px; }
