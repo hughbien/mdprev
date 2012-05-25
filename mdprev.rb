@@ -103,7 +103,7 @@ fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {
   font-style: inherit;
   vertical-align: baseline; 
 }
-body { text-align: center; font-size: 11.5px; background: #e0e0e0;
+body { text-align: center; font-size: 12px; background: #e0e0e0;
   line-height: 1.7em; color: #333; width: 100%; height: 100%;
   font-family: lucida grande, helvetica, sans-serif; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; font-family: Copperplate / Copperplate Gothic Light, sans-serif; }
