@@ -6,7 +6,7 @@ Styed preview of markdown files in browser or PDF viewer.
 Installation
 ============
 
-    % gem install mdprev
+    $ gem install mdprev
 
 For PDF support, download [http://code.google.com/p/wkhtmltopdf/] and copy it
 into your `/path/to/bin/wkhtmltopdf`.  Or you can configure `mdprev` to use

@@ -1,8 +1,6 @@
-require File.expand_path('mdprev', File.dirname(__FILE__)) 
- 
 Gem::Specification.new do |s|
   s.name        = 'mdprev'
-  s.version     = MarkdownPreview::VERSION
+  s.version     = '1.0.5'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Hugh Bien']
   s.email       = ['hugh@hughbien.com']
