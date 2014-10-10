@@ -51,7 +51,7 @@ module MarkdownPreview
   def self.build_body_and_anchors(str)
     html = BlueCloth.new(str).to_html
     anchors = []
-    html.gsub!('<h1>', '</div><div class="section"><h1>')
+    # html.gsub!('<h1>', '</div><div class="section"><h1>')
     html.scan(/<h1>[^<]+<\/h1>/).each do |match|
       text = match.gsub(/<\/?h1>/, '')
       anchor = text.
